@@ -1,4 +1,4 @@
-import { mkdirSync, writeFileSync } from "node:fs";
+import { mkdirSync, readFileSync, writeFileSync } from "node:fs";
 
 // Rejected Olympic Sport: live pigeon shooting (an actual 1900 Olympic
 // event) formally withdrawn — not because of the shooting, but because the
@@ -18,10 +18,16 @@ function validateEntry(text: string): void {
   }
 }
 
-function writeEntry(text: string): void {
+function writeEntry(text: string): string {
   validateEntry(text);
   mkdirSync("/output", { recursive: true });
   writeFileSync("/output/entry.txt", text, "utf8");
+  // Read back and confirm the written bytes are exactly the entry.
+  const written = readFileSync("/output/entry.txt", "utf8");
+  if (written !== text) {
+    throw new Error("entry.txt read-back mismatch");
+  }
+  return written;
 }
 
 function main(): void {
