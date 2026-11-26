@@ -56,10 +56,13 @@ one named thing + a twist that inverts) with a fact the judge can verify.
 - Ensemble rank: panel 0/5 kept (valid null).
 - Duel: glm-5.3-flash via `judge-call.py --priority high`, round-robin
   top-3 (S1 pigeon-union vs S2 freestyle-apology vs S3 relay-of-blame),
-  2× position-swapped. Verdicts saved to
-  `self-judge-verdicts/u-motasimfuad-rejected-olympic-sports-9d83e7da.jsonl`.
-  Judge routes were heavily degraded during the duel (free routes 429/503,
-  akarouter 300 s timeouts, 5 builders contending on the judge lock).
+  2× position-swapped — NO VERDICT EVER PRODUCED. Judge routes were
+  dead simultaneously for 25+ minutes (free routes 429/503, MecutinAI
+  curl error, AkaRouter 300 s timeouts, 10 builders contending on the
+  judge lock); the runner was killed after 4 failed rounds of call 1 to
+  stop adding load. Entry decided by lexicographic scoring (S1 wins
+  C1/C3/C5) under the submit-early rule — reported honestly, no duel
+  verdict exists.
 
 ## Build
 
