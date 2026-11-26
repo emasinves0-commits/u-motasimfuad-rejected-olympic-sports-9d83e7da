@@ -30,9 +30,13 @@ and "the pigeons' union" is the kind of phrase someone repeats the same day.
   same generation, the field of 1,033 entries.
 - Ensemble rank: PANEL KOSONG 0/5 kept (qwen + llama unstable under
   reversal, 3 failed parse) — valid null, fallback to own scoring + duel.
-- Self-judged with z-ai/glm-5.3-flash via `judge-call.py --priority high`,
-  2× position-swapped duels — see verdicts in
-  `self-judge-verdicts/u-motasimfuad-rejected-olympic-sports-9d83e7da.jsonl`.
+- Duel glm-5.3-flash: ATTEMPTED via `judge-call.py --priority high`
+  (round-robin top-3, 2× position-swapped) — NO VERDICT EVER PRODUCED.
+  All five judge routes were dead simultaneously for 25+ minutes (free
+  routes 429/503, MecutinAI curl error, AkaRouter 300 s timeouts, 10
+  builders contending on the judge lock). Per the submit-early rule, the
+  entry was decided by lexicographic scoring against the judge's own
+  criteria instead, and this is reported honestly: no duel verdict exists.
 
 ## Verification
 
